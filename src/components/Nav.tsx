@@ -1,12 +1,11 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Icon from "./Icon";
 // import x from "icons/tags.svg"; //  sygo-loader => svg-sprite-loader
 // import y from "icons/money.svg"; //  sygo-loader => svg-sprite-loader
 // import z from "icons/statistics.svg"; //  sygo-loader => svg-sprite-loader
 
-require("icons/tags.svg");
-require("icons/money.svg");
-require("icons/statistics.svg");
+
 
 // console.log(x, y, z);  // 如果不使用log，会被优化掉使用不了。
 
@@ -36,21 +35,15 @@ const Nav = () => {
     <NavWrapper>
       <ul>
         <li>
-          <svg className="icon">
-            <use xlinkHref="#tags" />
-          </svg>
+          <Icon name="tags" />
           <Link to="/tags">标签页</Link>
         </li>
         <li>
-          <svg className="icon">
-            <use xlinkHref="#money" />
-          </svg>
+          <Icon name="money" />
           <Link to="/money">记账页</Link>
         </li>
         <li>
-          <svg className="icon">
-            <use xlinkHref="#statistics" />
-          </svg>
+          <Icon name="chart" />
           <Link to="/statistics">统计页</Link>
         </li>
       </ul>
