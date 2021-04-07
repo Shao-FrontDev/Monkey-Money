@@ -9,14 +9,14 @@ import {
 import Nav from "components/Nav";
 
 const Wrapper = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 100vh;
   display: flex;
   flex-direction: column;
 `;
 
 const Main = styled.div`
-  border: 1px solid green;
+  /* border: 1px solid green; */
   flex-grow: 1;
 `;
 

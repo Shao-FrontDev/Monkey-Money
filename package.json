@@ -101,7 +101,9 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.9"
+    "@types/styled-components": "^5.1.9",
+    "svg-sprite-loader": "^6.0.2",
+    "svgo-loader": "^3.0.0"
   },
   "resolutions": {
     "styled-components": "5"
