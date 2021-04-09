@@ -22,6 +22,7 @@ export default function Money() {
   });
 
   type Selected = typeof selected;
+  
   const onChange = (obj: Partial<Selected>) => {
     setSelected({
       ...selected,
