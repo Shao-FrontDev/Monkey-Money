@@ -21,34 +21,31 @@ export default function Money() {
     amount: 0,
   });
 
+  type Selected = typeof selected;
+  const onChange = (obj: Partial<Selected>) => {
+    setSelected({
+      ...selected,
+      ...obj,
+    });
+  };
+
   return (
     <MyLayout>
-      {selected.tags}
-      <br />
-      {selected.note}
       <TagsSection
         value={selected.tags}
-        onChange={(tags) => {
-          setSelected({ ...selected, tags: tags });
-        }}
+        onChange={(tags) => onChange({ tags })}
       ></TagsSection>
       <NoteSection
         value={selected.note}
-        onChange={(note) => {
-          setSelected({ ...selected, note: note });
-        }}
+        onChange={(note) => onChange({ note })}
       ></NoteSection>
       <CategorySection
         value={selected.category}
-        onChange={(category) => {
-          setSelected({ ...selected, category: category });
-        }}
+        onChange={(category) => onChange({ category })}
       ></CategorySection>
       <NumberPadSection
         value={selected.amount}
-        onChange={(amount) => {
-          setSelected({ ...selected, amount: amount });
-        }}
+        onChange={(amount) => onChange({ amount })}
         onOk={() => {}}
       ></NumberPadSection>
     </MyLayout>
