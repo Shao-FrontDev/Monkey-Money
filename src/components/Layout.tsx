@@ -15,9 +15,9 @@ const Main = styled.div`
   overflow: auto;
 `;
 
-type Props = {
-  name: string;
-};
+// type Props = {
+//   name: string;
+// };
 
 export default function Layout(props: any) {
   return (
