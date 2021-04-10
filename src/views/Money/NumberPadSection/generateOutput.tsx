@@ -17,9 +17,15 @@ const generateOutput = (text: string, output = "0") => {
       }
 
     case ".":
+      console.log("触发。");
+
       if (output.indexOf(".") >= 0) {
+        console.log("触发1");
+
         return output;
       }
+      console.log('触发2');
+      
       return output + ".";
 
     case "删除":

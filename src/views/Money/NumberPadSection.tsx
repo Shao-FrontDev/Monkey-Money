@@ -18,6 +18,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
       value = 0;
     } else {
       value = parseFloat(output);
+      console.log(value);
     }
     props.onChange(value);
   };
@@ -36,6 +37,8 @@ const NumberPadSection: React.FC<Props> = (props) => {
         .indexOf(text) >= 0
     ) {
       const value = generateOutput(text, output);
+      console.log(value);
+
       setOutput(value);
     }
   };
