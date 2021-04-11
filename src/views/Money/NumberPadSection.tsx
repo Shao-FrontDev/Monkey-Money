@@ -63,6 +63,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
         <button className="ok">OK</button>
         <button className="zero">0</button>
         <button className="dot">.</button>
+        {/* 存在一个待修复的Bug */}
       </div>
     </Wrapper>
   );

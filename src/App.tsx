@@ -13,7 +13,7 @@ function App() {
       <Route exact path="/tags">
         <Tags />
       </Route>
-      <Route path="/tags/:tag" component={Tag}>
+      <Route path="/tags/:id" component={Tag}>
         <Tag />
       </Route>
       <Route path="/money">
