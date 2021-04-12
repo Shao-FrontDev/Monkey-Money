@@ -11,6 +11,7 @@ const Wrapper = styled.div`
 
 const Main = styled.div`
   /* border: 1px solid green; */
+  background: #f3f3f3;
   flex-grow: 1;
   overflow: auto;
 `;

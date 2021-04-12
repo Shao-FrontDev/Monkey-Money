@@ -21,7 +21,7 @@ type Props = {
 export default function Icon(props: Props) {
   return (
     <svg className="icon">
-      <use xlinkHref={`#` + props.name} />
+      {props.name && <use xlinkHref={`#` + props.name} />}
     </svg>
   );
 }

@@ -1,6 +1,9 @@
 import { Button } from "components/Button";
+import { Center } from "components/Center";
 import Icon from "components/Icon";
 import Layout from "components/Layout";
+import { Space } from "components/Space";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useTags } from "useTags";
@@ -18,18 +21,6 @@ const TagList = styled.ol`
       align-items: center;
     }
   }
-
-
-`;
-
-const Center = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
-const Space = styled.div`
-  height: 32px;
 `;
 
 export default function Tags() {
@@ -46,11 +37,11 @@ export default function Tags() {
             </Link>
           </li>
         ))}
-        <Center>
-          <Space></Space>
-          <Button>新增标签</Button>
-        </Center>
       </TagList>
+      <Center>
+        <Space></Space>
+        <Button>新增标签</Button>
+      </Center>
     </Layout>
   );
 }

@@ -1,5 +1,5 @@
 import { lazyLoad } from "lib/myLazy";
-import { Component, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 // import NoMatch from "views/404";
@@ -20,7 +20,6 @@ const Statistics = lazyLoad("Statistics");
 const Tags = lazyLoad("Tags");
 const Tag = lazyLoad("Tag");
 
-
 function App() {
   return (
     <Switch>
@@ -38,10 +37,10 @@ function App() {
           <Statistics />
         </Route>
         <Redirect exact from="/" to="money"></Redirect>
-        <Route path="*">
-          <NoMatch />
-        </Route>
       </Suspense>
+      <Route path="*">
+        <NoMatch />
+      </Route>
     </Switch>
   );
 }
