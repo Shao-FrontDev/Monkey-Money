@@ -1,4 +1,5 @@
-import React, { lazy, Suspense } from "react";
+import { lazyLoad } from "lib/myLazy";
+import { Component, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 // import NoMatch from "views/404";
@@ -7,11 +8,18 @@ import { Switch, Route, Redirect } from "react-router-dom";
 // import Tag from "views/Tag";
 // import Tags from "views/Tags";
 
-const NoMatch = lazy(() => import("views/404"));
-const Money = lazy(() => import("views/Money"));
-const Statistics = lazy(() => import("views/Statistics"));
-const Tag = lazy(() => import("views/Tag"));
-const Tags = lazy(() => import("views/Tags"));
+// const NoMatch = lazy(() => import("views/404"));
+// const Money = lazy(() => import("views/Money"));
+// const Statistics = lazy(() => import("views/Statistics"));
+// const Tag = lazy(() => import("views/Tag"));
+// const Tags = lazy(() => import("views/Tags"));
+
+const NoMatch = lazyLoad("404");
+const Money = lazyLoad("Money");
+const Statistics = lazyLoad("Statistics");
+const Tags = lazyLoad("Tags");
+const Tag = lazyLoad("Tag");
+
 
 function App() {
   return (
