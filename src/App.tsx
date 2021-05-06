@@ -1,5 +1,5 @@
 import { lazyLoad } from "lib/myLazy";
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 // import NoMatch from "views/404";
@@ -24,21 +24,21 @@ function App() {
   return (
     <Switch>
       <Suspense fallback={<div>Loading...</div>}>
-        <Route exact path="/tags">
+        <Route exact path='/tags'>
           <Tags />
         </Route>
-        <Route path="/tags/:id" component={Tag}>
+        <Route path='/tags/:id' component={Tag}>
           <Tag />
         </Route>
-        <Route path="/money">
+        <Route path='/money'>
           <Money />
         </Route>
-        <Route path="/statistics">
+        <Route path='/statistics'>
           <Statistics />
         </Route>
-        <Redirect exact from="/" to="money"></Redirect>
       </Suspense>
-      <Route path="*">
+      <Redirect exact from='/' to='money'></Redirect>
+      <Route path='*'>
         <NoMatch />
       </Route>
     </Switch>

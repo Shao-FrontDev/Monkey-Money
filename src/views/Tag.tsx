@@ -1,5 +1,6 @@
 import { Button } from "components/Button";
 import { Center } from "components/Center";
+import { Input } from "components/Input";
 import Icon from "components/Icon";
 import Layout from "components/Layout";
 import { Space } from "components/Space";
@@ -20,48 +21,56 @@ const Topbar = styled.header`
   padding: 14px;
   background: white;
 `;
-
-const Label = styled.label`
-  margin-top: 10px;
+const InputWrapper = styled.div`
   background: white;
-  display: flex;
-  align-items: center;
-  padding: 0 14px;
-
-  > span {
-    margin-right: 16px;
-    white-space: nowrap;
-  }
-  > input {
-    display: block;
-    width: 100%;
-    height: 70px;
-    background: none;
-    border: none;
-  }
+  padding: 0 16px;
+  margin-top: 8px;
 `;
 
-const Tag: React.FC = (props) => {
-  const { findTag } = useTags();
-  let { id } = useParams<Params>();
-  const tag = findTag(parseInt(id));
+const Tag: React.FC = () => {
+  const { findTag, updateTag, deleteTag } = useTags();
+  let { id: idString } = useParams<Params>();
+  const tag = findTag(parseInt(idString));
+  const tagSection = (tag: {
+    id: number;
+    name: string;
+  }) => (
+    <div>
+      <InputWrapper>
+        <Input
+          label='标签名'
+          type='text'
+          placeholder='标签名'
+          value={tag.name}
+          onChange={(e) => {
+            updateTag(tag.id, { name: e.target.value });
+          }}
+        ></Input>
+      </InputWrapper>
+      <Center>
+        <Space></Space>
+        <Button onClick={() => deleteTag(tag.id)}>
+          删除标签
+        </Button>
+      </Center>
+    </div>
+  );
   return (
     <Layout>
       <Topbar>
-        <Icon name="left" />
+        <Icon name='left' />
         <span>编辑标签</span>
-        <Icon name="" />
+        <Icon name='' />
       </Topbar>
-      <div>
-        <Label>
-          <span>标签名</span>
-          <input type="text" placeholder="标签名" />
-        </Label>
-      </div>
-      <Center>
-        <Space></Space>
-        <Button>删除标签</Button>
-      </Center>
+      {tag ? (
+        tagSection(tag)
+      ) : (
+        <Center>
+          <InputWrapper>
+            <div>tag 不存在</div>
+          </InputWrapper>
+        </Center>
+      )}
     </Layout>
   );
 };
