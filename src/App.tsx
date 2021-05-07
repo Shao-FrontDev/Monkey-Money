@@ -36,8 +36,8 @@ function App() {
         <Route path='/statistics'>
           <Statistics />
         </Route>
+        <Redirect exact from='/' to='money'></Redirect>
       </Suspense>
-      <Redirect exact from='/' to='money'></Redirect>
       <Route path='*'>
         <NoMatch />
       </Route>
