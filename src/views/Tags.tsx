@@ -5,7 +5,7 @@ import Layout from "components/Layout";
 import { Space } from "components/Space";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { useTags } from "useTags";
+import { useTags } from "hooks/useTags";
 
 const TagList = styled.ol`
   font-size: 16px;
@@ -31,9 +31,7 @@ export default function Tags() {
         {tags.map((tag) => (
           <li key={tag.id}>
             <Link to={"/tags/" + tag.id}>
-              <span className='oneLine'>
-                {tag.id}:{tag.name}
-              </span>
+              <span className='oneLine'>{tag.name}</span>
               <Icon name='right' />
             </Link>
           </li>

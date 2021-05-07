@@ -1,6 +1,6 @@
 import { createId } from "lib/createID";
 import { useState, useEffect } from "react";
-import { useUpdate } from "./hooks/useUpdate";
+import { useUpdate } from "./useUpdate";
 
 const useTags = () => {
   const [tags, setTags] = useState<
@@ -59,7 +59,7 @@ const useTags = () => {
 
   const addTag = () => {
     const tagName = window.prompt("新标签的名称为");
-    if (tagName !== null) {
+    if (tagName !== null && tagName !== "") {
       setTags([...tags, { id: createId(), name: tagName }]);
     }
   };

@@ -1,5 +1,6 @@
 import Layout from "components/Layout";
-import React, { useState } from "react";
+import { useRecords } from "hooks/useRecords";
+import { useState } from "react";
 import styled from "styled-components";
 import { CategorySection } from "./Money/CategorySection";
 import { NoteSection } from "./Money/NoteSection";
@@ -13,14 +14,19 @@ const MyLayout = styled(Layout)`
 
 type Category = "-" | "+";
 
-export default function Money() {
-  const [selected, setSelected] = useState({
-    tagIDs: [] as number[],
-    note: "",
-    category: "-" as Category,
-    amount: 0,
-  });
+const defaultFormData = {
+  tagIds: [] as number[],
+  note: "",
+  category: "-" as Category,
+  amount: 0,
+};
 
+export default function Money() {
+  const [selected, setSelected] = useState(defaultFormData);
+
+  const { records, addRecord } = useRecords();
+  console.log("records");
+  console.log(records);
   type Selected = typeof selected;
 
   const onChange = (obj: Partial<Selected>) => {
@@ -30,11 +36,17 @@ export default function Money() {
     });
   };
 
+  const submit = () => {
+    addRecord(selected);
+    alert("保存成功");
+    setSelected(defaultFormData);
+  };
   return (
     <MyLayout>
+      {JSON.stringify(selected)}
       <TagsSection
-        value={selected.tagIDs}
-        onChange={(tagIDs) => onChange({ tagIDs })}
+        value={selected.tagIds}
+        onChange={(tagIds) => onChange({ tagIds })}
       ></TagsSection>
       <NoteSection
         value={selected.note}
@@ -47,7 +59,7 @@ export default function Money() {
       <NumberPadSection
         value={selected.amount}
         onChange={(amount) => onChange({ amount })}
-        onOk={() => {}}
+        onOk={submit}
       ></NumberPadSection>
     </MyLayout>
   );
