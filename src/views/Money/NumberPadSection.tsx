@@ -18,7 +18,6 @@ const NumberPadSection: React.FC<Props> = (props) => {
       value = 0;
     } else {
       value = parseFloat(output);
-      console.log(value);
     }
     props.onChange(value);
   };
@@ -37,16 +36,15 @@ const NumberPadSection: React.FC<Props> = (props) => {
         .indexOf(text) >= 0
     ) {
       const value = generateOutput(text, output);
-      console.log(value);
 
       setOutput(value);
     }
   };
   return (
     <Wrapper>
-      <div className="output">{output}</div>
+      <div className='output'>{output}</div>
       <div
-        className="pad clearfix"
+        className='pad clearfix'
         onClick={onClickButtonWrapper}
       >
         <button>1</button>
@@ -60,9 +58,9 @@ const NumberPadSection: React.FC<Props> = (props) => {
         <button>7</button>
         <button>8</button>
         <button>9</button>
-        <button className="ok">OK</button>
-        <button className="zero">0</button>
-        <button className="dot">.</button>
+        <button className='ok'>OK</button>
+        <button className='zero'>0</button>
+        <button className='dot'>.</button>
         {/* 存在一个待修复的Bug */}
       </div>
     </Wrapper>

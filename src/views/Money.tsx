@@ -24,9 +24,7 @@ const defaultFormData = {
 export default function Money() {
   const [selected, setSelected] = useState(defaultFormData);
 
-  const { records, addRecord } = useRecords();
-  console.log("records");
-  console.log(records);
+  const { addRecord } = useRecords();
   type Selected = typeof selected;
 
   const onChange = (obj: Partial<Selected>) => {
@@ -37,8 +35,9 @@ export default function Money() {
   };
 
   const submit = () => {
-    addRecord(selected);
-    alert("保存成功");
+    if (addRecord(selected)) {
+      alert("保存成功");
+    }
     setSelected(defaultFormData);
   };
   return (
