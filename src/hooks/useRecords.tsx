@@ -9,7 +9,9 @@ type newRecordItem = {
   amount: number;
 };
 
-type RecordItem = newRecordItem & { createdAt: string };
+export type RecordItem = newRecordItem & {
+  createdAt: string;
+};
 
 export const useRecords = () => {
   const [records, setRecords] = useState<RecordItem[]>([]);
