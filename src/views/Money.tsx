@@ -14,6 +14,10 @@ const MyLayout = styled(Layout)`
 
 type Category = "-" | "+";
 
+const CategoryWrapper = styled.div`
+  background: #c4c4c4;
+`;
+
 const defaultFormData = {
   tagIds: [] as number[],
   note: "",
@@ -42,7 +46,6 @@ export default function Money() {
   };
   return (
     <MyLayout>
-      {JSON.stringify(selected)}
       <TagsSection
         value={selected.tagIds}
         onChange={(tagIds) => onChange({ tagIds })}
@@ -51,10 +54,12 @@ export default function Money() {
         value={selected.note}
         onChange={(note) => onChange({ note })}
       ></NoteSection>
-      <CategorySection
-        value={selected.category}
-        onChange={(category) => onChange({ category })}
-      ></CategorySection>
+      <CategoryWrapper>
+        <CategorySection
+          value={selected.category}
+          onChange={(category) => onChange({ category })}
+        ></CategorySection>
+      </CategoryWrapper>
       <NumberPadSection
         value={selected.amount}
         onChange={(amount) => onChange({ amount })}
